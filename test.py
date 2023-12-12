@@ -1,6 +1,6 @@
-import while_db_rs
+import whiledb_rs
 
-print(while_db_rs.parse("""
+print(whiledb_rs.parse("""
 /* Can be found at: https://github.com/gzqaq/CS2612-PLaC/tree/main/assigns/assign1202/C/samples */
 // sample_src00
 n = read_int();

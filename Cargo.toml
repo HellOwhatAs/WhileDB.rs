@@ -1,11 +1,11 @@
 [package]
-name = "while_db_rs"
-version = "0.1.0"
+name = "whiledb_rs"
+version = "0.1.1"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
-name = "while_db_rs"
+name = "whiledb_rs"
 crate-type = ["cdylib"]
 
 [dependencies]

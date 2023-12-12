@@ -24,7 +24,7 @@ fn parse(src: String) -> PyResult<String> {
 
 /// A Python module implemented in Rust.
 #[pymodule]
-fn while_db_rs(_py: Python, m: &PyModule) -> PyResult<()> {
+fn whiledb_rs(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(parse, m)?)?;
     Ok(())
 }
