@@ -279,9 +279,9 @@ checksum = "e1766d682d402817b5ac4490b3c3002d91dfa0d22812f341609f97b08757359c"
 
 [[package]]
 name = "whiledb"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "88db54f73cdcbd0316a98cfd5e01ea53f616b26f73951c67e69c0461f0ba4b63"
+checksum = "dd6767a6340cb579ab8fe2ea7ffa6554d4c28323005d38242c97ceba372affc8"
 dependencies = [
  "colored",
  "santiago",
@@ -289,7 +289,7 @@ dependencies = [
 
 [[package]]
 name = "whiledb_rs"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "pyo3",
  "whiledb",

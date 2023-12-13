@@ -1,14 +1,16 @@
+mod utils;
+use utils::{AST, cmd2ast};
 use pyo3::exceptions::PyRuntimeError;
 use pyo3::prelude::*;
-use whiledb;
-use whiledb::src_error::SrcError;
+use whiledb::{SrcError, parse as whiledb_parse};
+
 
 /// Formats the sum of two numbers as string.
 #[pyfunction]
-fn parse(src: String) -> PyResult<String> {
-    match whiledb::parse(&src) {
+fn parse(src: String) -> PyResult<AST> {
+    match whiledb_parse(&src) {
         Ok(tree) => {
-            Ok(format!("{:?}", tree))
+            Ok(cmd2ast(&tree))
         },
         Err(err) => {
             let msg = match err {
