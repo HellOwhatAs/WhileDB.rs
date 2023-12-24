@@ -44,6 +44,7 @@ pub fn expr2ast(root: &Expr) -> AST {
     match root {
         Expr::ConstInt(s) => AST::new("int", vec![AST::leaf(s)]),
         Expr::ConstFloat(s) => AST::new("float", vec![AST::leaf(s)]),
+        Expr::ConstString(s) => AST::new("string", vec![AST::leaf(s)]),
         Expr::Tuple(es) => AST::new("tuple", es.iter().map(|e| expr2ast(e)).collect()),
         Expr::Var(s) => AST::new("ident", vec![AST::leaf(s)]),
         Expr::BinOp(op, e1, e2) => AST::new(binop2str(op), vec![expr2ast(e1), expr2ast(e2)]),
