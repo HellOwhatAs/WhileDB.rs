@@ -5,7 +5,7 @@ use pyo3::prelude::*;
 use whiledb::{SrcError, parse as whiledb_parse, interpreter, interpreter::Result};
 use std::{rc::Rc, collections::VecDeque, cell::RefCell};
 
-/// Formats the sum of two numbers as string.
+/// parse the `src` string
 #[pyfunction]
 fn parse(src: String) -> PyResult<AST> {
     match whiledb_parse(&src) {
@@ -48,7 +48,8 @@ fn exec(src: String) -> PyResult<()> {
             interpreter::utils::set_attr(state.clone(), "print", Rc::new(RefCell::new(
                 interpreter::WdAny::Func("print".to_string(), interpreter::Function::BuildInFunction(interpreter::BuildInFunction(py_buildin_print)))
             )))?;
-            interpreter::exec(Rc::new(res), interpreter::utils::local_state(state.clone()))?;
+            let state = interpreter::utils::local_state(state.clone());
+            interpreter::exec(Rc::new(res), state)?;
             Ok(())
         },
         Err(err) => {
